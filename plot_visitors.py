@@ -163,11 +163,12 @@ class MainWindow(QtWidgets.QWidget):
         progress.hide()
 
         if could_not_find:
-            QtWidgets.QMessageBox.warning(
-                None,
-                'Warning',
-                'Could not find the following addresses:\n' + '\n\t'.join(could_not_find),
-            )
+            message_box = QtWidgets.QMessageBox(parent=self)
+            message_box.setIcon(QtWidgets.QMessageBox.Warning)
+            message_box.setWindowTitle('Warning')
+            message_box.setText('Could not find some of the addresses. Look at the details to see which addresses were not found.')
+            message_box.setDetailedText('\n'.join(could_not_find))
+            message_box.exec_()
 
         # Populate the data for our world map. The size of the circle on the map will be proportional to the number of times
         # the address shows up.
