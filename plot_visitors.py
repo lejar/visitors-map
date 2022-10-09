@@ -107,6 +107,7 @@ class MainWindow(QtWidgets.QWidget):
             self.make_map_button.setEnabled(False)
             return None
 
+        self.excel_file.setText(filename)
         self.excel_data = pandas.read_excel(filename)
         columns = list(self.excel_data.columns)
         if not columns:
