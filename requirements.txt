@@ -1,0 +1,6 @@
+bokeh
+geocoder
+pandas
+openpyxl
+PySide6
+pyinstaller
